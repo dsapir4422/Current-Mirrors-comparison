@@ -76,17 +76,24 @@ More efficient approach is to take the current from Iref branch and copy it to b
 
 *****************
 ### 4. Low voltage regulated cascoded current mirror
+We will add an opamp in negative feedback to boost Rout.
 With this gain boosting technique, $R_{out}$ = $A*(g_{m2}*r_{o2}*r_{o4})$, which is really high !
-Also, we now have a well-defined $V_DS$ voltage so matching is better. 
+Also, we now have a well-defined $V_{DS}$ voltage so matching is better. 
 
 **Opamp design**
 
 Since Vin=Vs3=200mV & Vout=Vg4=800mV we need a low voltage CM input and high voltage CM output -> 2 stage Op-Amp with PMOS input and CS output
+![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8fdbb756-a87c-4aa4-bc1e-c487cb932547)
+Spec is - 
 
 PM > 60 deg
-
 A_OL > 60 dB
 
+we will add a capacitor Cc between the 2 stages the increase phase margin - 
+![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/76d21374-2503-47a6-9aff-1f1301fddf48)
+
+
+Simulated DC point - 
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/97495754-1601-4719-ac6f-999d7dc998b2)
 
 
@@ -111,6 +118,9 @@ Finally, we compare Spec vs. corners -
 
 We can see that Regulated cascode has lowest STD for Iout and highest Rout over corners
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/d4394877-85ca-47ee-bfa0-ea778d7f4745)
+
+Iout of regulated cascode cross corners (process and temperatures) - 
+![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/cc9560b0-4732-441e-8642-cefbb7e49ef6)
 
 
 
