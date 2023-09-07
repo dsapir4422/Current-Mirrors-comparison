@@ -2,9 +2,9 @@
 This project will introduce a current mirror at different complexity levels. we will compare between a basic current mirror, cascode, low voltage and a regulated low voltage with gain boosting as opamp !
 
 ---------------------------------
-For this project we will use CMOS gpk 90nm technology.
+For this project we will use CMOS gpdk 90nm technology.
 
-Our goal is to copy $10uA$ current to $5uA$ current with the below spec - 
+Our goal is to copy $10uA$ -> $5uA$ current with the below spec - 
 * $I_{ref} = 10uA$
 * $I_{out} = 5uA$
 * $V_{AA} = 2V$
@@ -17,18 +17,18 @@ Spec will hold cross corners - TT, SS, FF and temperatures = [-40, 25, 125]
 
 *****************
 ### 1. Basic current mirror
- A basic current mirror consist of a diode-connected transistor (M1) connected to a 2nd transistor by its $V_{GS}$ voltage.
- It follows the following basic equation - $I_{out} = I_{ref}*\frac{(\frac{W}{L})_2}{(\frac{W}{L})_1}$ 
- - basic circuit
- - Ids vs Vout simulation
- - Rout vs freq simulation
- 2
-   problems to solve -
-	• Different in Vds due to channel length modulation
-	• If Vout changing, Iout should not change
-Resolve issues with higher Rout
+ A basic current mirror consist of a diode-connected transistor (M1) connected to a 2nd transistor by its $V_{GS}$ voltage. Described by the following basic equation -
+ 
+ ![basic_cm](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/67c109e3-aeac-4e78-9b63-4bd1ff0e7566)
+
+
+ This basic circuit has 2 problems to solve:
+ - Different in $V{DS}$ due to channel length modulation
+ - If Vout changing, Iout should not change
+
 Rout = ro2
-![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8ed40def-d9ea-40ef-852b-9e578815c87a)
+[image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8ed40def-d9ea-40ef-852b-9e578815c87a)
+<img src="https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8ed40def-d9ea-40ef-852b-9e578815c87a" alt="Image Alt Text" width="500" height="500" />
 
 
 
