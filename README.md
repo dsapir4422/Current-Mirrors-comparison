@@ -52,53 +52,64 @@ Simulated circuit DC point -
 ### 3. Low voltage cascode current mirror
 Vout CM reduced -> $V{out,min}$ = $V_{ov}$ + $V_{ov}$ = $2V_{ov}$
  = 2*0.2 = 0.4 V, which is very low ! 
-$R{out}$ = $g_{m2}$ * $r_{o2}$ * $r_{o4}$. Vds got reduced and therefore ro2 reduced -> Rout reduced but still very high due to cascode structure.
+ 
+$R{out}$ = $g_{m2}$ * $r_{o2}$ * $r_{o4}$. Vds got reduced and therefore $r_{o2}$ reduced -> Rout reduced but still very high due to cascode structure.
 Also, Vds is still not well defined.
 We now need extra biasing circuit, to bias Vb. 
-Vb range - 
-Vb,min = Vgs3 + Vov1 
-Vb,max = Vgs1 + Vth 
+
+**Vb range -**
+
+$V{b,min}$ = $V_{GS3}$ + $V_{ov1}$ 
+
+$V{b,max}$ = $V_{GS1}$ + $V_{th}$ 
 
 We have 2 approach - 
+
 Vb bias using a Current mirror with resistor - 
 We will need the resistor to create a current, but the resistor value is high which will cost lots of area
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/5a27c853-3d0b-4ec9-a42d-5f53d4251a17)
+
 
 Vb bias from Iref branch - 
 More efficient approach is to take the current from Iref branch and copy it to bias Vb
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/65cc4319-9f38-4c99-8916-ff0f850a67f8)
 
-
-
-
-
-
 *****************
 ### 4. Low voltage regulated cascoded current mirror
-With this gain boosting technique, Rout = A*(gm2*ro2*ro4), which is really high !
-Also, we now have a well-defined Vds voltage so matching is better. 
-Opamp design - 
-Since Vin=Vs3=200mV & Vout=Vg4=800mV we need low voltage CM input and high voltage CM output -> 2 stage Op-Amp with PMOS input and CS output
+With this gain boosting technique, $R_{out}$ = $A*(g_{m2}*r_{o2}*r_{o4})$, which is really high !
+Also, we now have a well-defined $V_DS$ voltage so matching is better. 
+
+**Opamp design**
+
+Since Vin=Vs3=200mV & Vout=Vg4=800mV we need a low voltage CM input and high voltage CM output -> 2 stage Op-Amp with PMOS input and CS output
+
 PM > 60 deg
+
 A_OL > 60 dB
+
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/97495754-1601-4719-ac6f-999d7dc998b2)
 
 
 
-Results summary - 
+**Results summary**
+
 We introduce Iout vs. Vout (Voltage as load) graph to compare between the different current mirrors. 
-From the graph we can see the following - 
-	• Iout_CM (Red) - has worst Iout due to high channel length modulation
+
+From the graph we can see the following:
+* 	Iout_CM (Red) - has worst Iout due to high channel length modulation
+ 
 Different between Iout_Cascode and Iout_low_Vx (low voltage) is 366mV ! Which proves the low voltage CM provides stable current starting from 433mV instead of 800mV !
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/36994b0f-4fb0-4c80-a1fe-5cc7be15384e)
 
-We also compare between different Rout vs. frequency - 
-	• Rout_low_Vx_reg (Regulated cascode) has the higher Rout
-Rout_cascode has high Rout as well, but it is an high power design
+We also compare between different Rout vs. frequency:
+*	Rout_low_Vx_reg (Regulated cascode) has the higher Rout
+ 
+Rout_cascode has high Rout as well, but it is a high power design
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/4c6864ab-607e-4d71-8174-fa14577accef)
 
 Finally, we compare Spec vs. corners - 
-Regulated cascode has lowest STD for Iout and highest Rout over corners
+
+We can see that Regulated cascode has lowest STD for Iout and highest Rout over corners
 ![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/d4394877-85ca-47ee-bfa0-ea778d7f4745)
 
 
