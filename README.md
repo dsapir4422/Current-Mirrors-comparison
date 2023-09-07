@@ -23,34 +23,36 @@ Spec will hold cross corners - TT, SS, FF and temperatures = [-40, 25, 125]
 
 
  This basic circuit has 2 problems to solve:
- - Different in $V{DS}$ due to channel length modulation
+ - Different in $V_{DS}$ due to channel length modulation
  - If Vout changing, Iout should not change
 
-Rout = ro2
-[image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8ed40def-d9ea-40ef-852b-9e578815c87a)
+Simulated circuit DC point - 
+
 <img src="https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/8ed40def-d9ea-40ef-852b-9e578815c87a" alt="Image Alt Text" width="500" height="500" />
 
-
-
- 
+In this basic circuit - $R_{out} = r_{o2}$, which is the right NMOS output resistance.
 
 *****************
 ### 2. Cascode current mirror
-Adding a cascode device will increase Rout = gm2*ro2*ro4 solving the 2 problems, but Vout CM is very high -> Vout,min = Vgs+Vov = 2Vov + Vth
+
+From Sansen book  - 
+
+<img src="https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/34d2de6c-10f9-4e9b-bb5a-e43c3341b4a7" alt="Image Alt Text" width="250" height="250" align="center" />
+
+Adding a cascode device will increase output resistance by -  $R{out}$ = $g_{m2}$ * $r_{o2}$ * $r_{o4}$ which solves the 2 problems stated before, but Vout CM is very high -> $V_{out,min} = V_{gs}+V_{ov} = 2V_{ov} + V{th}$
  = 2*0.2 + 0.5 = 0.9 V not ideal to low power design
-Also, Vds is not well defined!
+Also, $V_{DS}$ is not well defined!
 
-From Sansen - 
-![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/34d2de6c-10f9-4e9b-bb5a-e43c3341b4a7)
+Simulated circuit DC point - 
 
-![image](https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/7d20c848-6218-4326-aea1-5517a2b80843)
+<img src="https://github.com/dsapir4422/Current-Mirrors-comparison/assets/87266625/7d20c848-6218-4326-aea1-5517a2b80843" alt="Image Alt Text" align="center" />
 
 
 *****************
 ### 3. Low voltage cascode current mirror
-Vout CM reduced -> Vout,min = Vov + Vov = 2Vov
+Vout CM reduced -> $V{out,min}$ = $V_{ov}$ + $V_{ov}$ = $2V_{ov}$
  = 2*0.2 = 0.4 V, which is very low ! 
-Rout = gm2*r02*r01. Vds got reduced and therefore ro2 reduced -> Rout reduced but still very high due to cascode structure.
+$R{out}$ = $g_{m2}$ * $r_{o2}$ * $r_{o4}$. Vds got reduced and therefore ro2 reduced -> Rout reduced but still very high due to cascode structure.
 Also, Vds is still not well defined.
 We now need extra biasing circuit, to bias Vb. 
 Vb range - 
