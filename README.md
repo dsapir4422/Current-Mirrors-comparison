@@ -2,7 +2,7 @@
 This project will introduce a current mirror at different complexity levels. we will compare between a basic current mirror, cascode, low voltage and a regulated low voltage with gain boosting as opamp !
 
 ---------------------------------
-For this project we will use CMOS gpdk 90nm technology.
+For this project we will use CMOS general pdk 90nm (gpdk90) technology by Cadence.
 
 Our goal is to copy $10uA$ -> $5uA$ current with the below spec - 
 * $I_{ref} = 10uA$
